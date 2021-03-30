@@ -25,14 +25,21 @@ public class DrawingPanel extends JPanel {
         this.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                drawShape(e.getX(), e.getY()); repaint();
+                drawShape(e.getX(), e.getY(), frame.configPanel.configColor); repaint();
             } //Can’t use lambdas, JavaFX does a better job in these cases
         });
     }
     private void drawShape(int x, int y) {
-        int radius = 100; //generate a random number
-        int sides = 6; //get the value from UI (in ConfigPanel)
-        Color color = Color.BLACK; //create a transparent random Color.
+        int radius = 50; //generate a random number
+        int sides = (int)frame.configPanel.sidesField.getValue(); //get the value from UI (in ConfigPanel)
+        Color color = Color.RED; //create a transparent random Color.
+        graphics.setColor(color);
+        graphics.fill(new RegularPolygon(x, y, radius, sides));
+    }
+    private void drawShape(int x, int y,Color color) {
+        int radius = 50; //generate a random number
+        int sides = (int)frame.configPanel.sidesField.getValue(); //get the value from UI (in ConfigPanel)
+        //color = Color.RED; //create a transparent random Color.
         graphics.setColor(color);
         graphics.fill(new RegularPolygon(x, y, radius, sides));
     }

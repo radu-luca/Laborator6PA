@@ -1,6 +1,5 @@
 import javax.swing.*;
-
-import static javax.swing.SwingConstants.CENTER;
+import java.awt.*;
 
 public class MainFrame extends JFrame {
     ConfigPanel configPanel;
@@ -17,11 +16,15 @@ public class MainFrame extends JFrame {
 
         //create the components
         canvas = new DrawingPanel(this);
+        configPanel = new ConfigPanel(this);
+        controlPanel = new ControlPanel(this);
 // ...TODO
 
         //arrange the components in the container (frame)
         //JFrame uses a BorderLayout by default
-        add(canvas, CENTER); //this is BorderLayout.CENTER
+        add(canvas, BorderLayout.CENTER); //this is BorderLayout.CENTER
+        add(configPanel,BorderLayout.NORTH);
+        add(controlPanel,BorderLayout.SOUTH);
  //...TODO
 
         //invoke the layout manager
