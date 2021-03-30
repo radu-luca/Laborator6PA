@@ -18,12 +18,11 @@ public class ConfigPanel extends JPanel {
         sidesLabel = new JLabel("Number of sides:");
         sidesField = new JSpinner(new SpinnerNumberModel(0, 0, 100, 1));
         sidesField.setValue(6); //default number of sides
-        String [] test = {"random","black"};
+        String [] test = {"Black","Random"};
         colorCombo = new JComboBox(test);
         colorCombo.setEditable(true);
         colorCombo.addActionListener(this::comboBox);
-        //create the colorCombo, containing the values: Random and Black
- //...TODO
+
         add(sidesLabel); //JPanel uses FlowLayout by default
         add(sidesField);
         add(colorCombo);
@@ -39,7 +38,7 @@ public class ConfigPanel extends JPanel {
             int R = (int)(Math.random()*256);
             int G = (int)(Math.random()*256);
             int B= (int)(Math.random()*256);
-            configColor = new Color(R, G, B); //random color, but can be bright or dull
+            configColor = new Color(R, G, B);
         }
     }
 

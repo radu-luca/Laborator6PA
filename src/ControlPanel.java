@@ -13,13 +13,11 @@ public class ControlPanel extends JPanel {
     JButton resetBtn = new JButton("Reset");
     JButton exitBtn = new JButton("Exit");
 
-    //create all buttons (Load, Reset, Exit)
- //...TODO
     public ControlPanel(MainFrame frame) {
         this.frame = frame; init();
     }
     private void init() {
-        //change the default layout manager (just for fun)
+
         setLayout(new GridLayout(1, 4));
 
         add(saveBtn);

@@ -20,26 +20,25 @@ public class DrawingPanel extends JPanel {
     }
 
     private void init() {
-        setPreferredSize(new Dimension(W, H)); //don’t use setSize. Why?
-        setBorder(BorderFactory.createEtchedBorder()); //for fun
+        setPreferredSize(new Dimension(W, H));
+        setBorder(BorderFactory.createEtchedBorder());
         this.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
                 drawShape(e.getX(), e.getY(), frame.configPanel.configColor); repaint();
-            } //Can’t use lambdas, JavaFX does a better job in these cases
+            }
         });
     }
-    private void drawShape(int x, int y) {
-        int radius = 50; //generate a random number
-        int sides = (int)frame.configPanel.sidesField.getValue(); //get the value from UI (in ConfigPanel)
-        Color color = Color.RED; //create a transparent random Color.
+/*    private void drawShape(int x, int y) {
+        int radius = 50;
+        int sides = (int)frame.configPanel.sidesField.getValue();
+        Color color = Color.RED;
         graphics.setColor(color);
         graphics.fill(new RegularPolygon(x, y, radius, sides));
-    }
+    }*/
     private void drawShape(int x, int y,Color color) {
-        int radius = 50; //generate a random number
-        int sides = (int)frame.configPanel.sidesField.getValue(); //get the value from UI (in ConfigPanel)
-        //color = Color.RED; //create a transparent random Color.
+        int radius = 50;
+        int sides = (int)frame.configPanel.sidesField.getValue();
         graphics.setColor(color);
         graphics.fill(new RegularPolygon(x, y, radius, sides));
     }
